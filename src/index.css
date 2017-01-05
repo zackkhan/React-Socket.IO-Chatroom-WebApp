@@ -1,0 +1,8 @@
+.messageBlock {
+  background: #cce5ff;
+      margin: 5px;
+      width: 300px;
+      border-radius: 1px;
+        box-shadow: 0 1px 0px #333;
+        list-style-type: none;
+}
