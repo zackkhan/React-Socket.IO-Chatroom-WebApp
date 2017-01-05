@@ -6,4 +6,4 @@ To run:
 2. Enter into directory in command line/terminal
 3. type 'npm install' in cmd line/terminal (without quotation marks)
 4. enter 'node .' in terminal (without quotation marks)
-5. head to localhost:3000
+5. head to localhost:3000 and try it out! (try using multiple browsers/tabs at once!)
