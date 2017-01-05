@@ -11,7 +11,7 @@ const server = http.createServer(app);
 const io = socketIo(server);
 //var myModule = require('src/index.js');
 //var username = myModule.username;
-
+var users = {};
 app.use(express.static(__dirname + '/public') );
 app.use(webpackDevMiddleware(webpack(webpackConfig)));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -20,10 +20,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 io.on('connection', socket =>
 {
   socket.on('setId', function(username){
-    console.log(username);
+  users[socket.id] = username;
+  socket.broadcast.emit('users', users);
   })
   socket.on('message', body => {
-    socket.broadcast.emit('message', {body:body, from:un})
+    socket.broadcast.emit('message', {body:body, from:users[socket.id]})
   })
 }
 )
